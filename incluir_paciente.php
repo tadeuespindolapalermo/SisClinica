@@ -42,7 +42,7 @@
                 alert(\"Paciente cadastrado com sucesso!\");
                 </script>
                 <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/TCD_LPWII_Tadeu/index.php?pagina=listar_paciente.php'
+                http://localhost/TCD_LPWII/index.php?pagina=listar_paciente.php'
             ";
         } else {
             echo "
@@ -50,7 +50,7 @@
                 alert(\"Erro ao cadastrar paciente!\");
                 </script>
                 <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/TCD_LPWII_Tadeu/index.php?pagina=incluir_paciente.php'
+                http://localhost/TCD_LPWII/index.php?pagina=incluir_paciente.php'
             ";
         }
     }
