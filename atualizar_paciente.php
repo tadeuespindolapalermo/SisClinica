@@ -14,7 +14,7 @@
     $linha = mysqli_fetch_array($rs, MYSQLI_ASSOC);
 
 echo '
-<div class="container listar">
+<div class="container">
     <legend>Atualizar Paciente</legend>
     <form action="index.php?pagina=processar_atualizacao_paciente.php&idPaciente='.$linha['id_paciente'].'" method="post">
         <div class="form-inline ">

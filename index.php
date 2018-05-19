@@ -34,11 +34,29 @@
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                Opções <b class="caret"></b>
+                                Especialidade <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Consultas</a></li>
-                                <li><a href="#">Agenda</a></li>
+                                <li><a href="index.php?pagina=listar_especialidade.php">Listar Especialidade</a></li>
+                                <li><a href="index.php?pagina=incluir_especialidade.php">Incluir Especialidade</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Médico <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="index.php?pagina=listar_medico.php">Listar Médico</a></li>
+                                <li><a href="index.php?pagina=incluir_medico.php">Incluir Médico</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Consultas <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="index.php?pagina=agendar_consulta.php">Agendar Consultas</a></li>
+                                <li><a href="index.php?pagina=listar_consulta.php">Listar Consultas</a></li>
                             </ul>
                         </li>
                     </ul>

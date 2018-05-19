@@ -35,7 +35,7 @@
         $imcPaciente = $paciente->calculaImcPaciente();
         $paciente->setImcPaciente($imcPaciente);
 
-        // Execute o método incluir paciente
+        // Execute o método atualizar paciente
         $paciente->atualizarPaciente();
         if($paciente->getAtualizacaoEfetuada()) {
             echo "
@@ -48,7 +48,7 @@
         } else {
             echo "
                 <script type=\"text/javascript\">
-                alert(\"Erro ao cadastrar paciente!\");
+                alert(\"Erro ao atualizar paciente!\");
                 </script>
                 <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
                 http://localhost/TCD_LPWII/index.php?pagina=incluir_paciente.php'
