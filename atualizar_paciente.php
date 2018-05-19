@@ -27,7 +27,7 @@ echo '
                 <input style="width: 125px; margin-left: 6px;" id="cpf" type="text" name="cpf" class="form-control" placeholder="999.999.999-99" required value="'.$linha['cpf_paciente'].'">
 
                 <label class="form-group">Endereço</label>
-                <input maxlength="40" style="width: 420px; margin-left: 15px;" type="text" name="endereco" class="form-control" placeholder="Máximo 40 caracteres..." required value="'.$linha['endereco_paciente'].'"><br/>
+                <input maxlength="80" style="width: 420px; margin-left: 15px;" type="text" name="endereco" class="form-control" placeholder="Máximo 80 caracteres..." required value="'.$linha['endereco_paciente'].'"><br/>
 
                 <label class="form-group">Fone</label>
                 <input style="width: 136px; margin-left: 12px;" id="telefone" type="text" name="telefone" class="form-control" placeholder="(99) 9 9999-9999" required value="'.$linha['telefone_paciente'].'">

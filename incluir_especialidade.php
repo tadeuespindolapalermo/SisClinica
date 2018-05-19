@@ -40,7 +40,7 @@
         <div class="form-inline">
             <div class="col-lg-13">
                 <label class="form-group">Descrição</label>
-                <input maxlength="40" style="width: 325px; margin-left: 6px;" type="text" name="descricao" class="form-control" placeholder="Máximo 40 caracteres..." required><br/>
+                <input maxlength="60" style="width: 325px; margin-left: 6px;" type="text" name="descricao" class="form-control" placeholder="Máximo 60 caracteres..." required><br/>
 
                 <button style="width: 185p; margin-left: 107px;" type="submit" class="btn btn-success">Salvar</button>
             </div>

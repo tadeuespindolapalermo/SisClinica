@@ -144,7 +144,7 @@ class Paciente {
      * ESTÁ PRONTO ESTE MÉTODO
      */
     public function calculaImcPaciente() {
-        $imc = $this->getPesoPaciente() * ($this->getAlturaPaciente() * $this->getAlturaPaciente());
+        $imc = $this->getPesoPaciente() / ($this->getAlturaPaciente() * $this->getAlturaPaciente());
         return $imc;
     }
 
