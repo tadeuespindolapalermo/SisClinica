@@ -23,6 +23,9 @@ class Paciente {
     // Atributo especial que retorna true se o paciente foi incluido
     private $inclusaoEfetuada = false;
 
+    // Atributo especial que retorna true se o paciente foi atualizado
+    private $atualizacaoEfetuada = false;
+
     // Métodos acessores SET e GET
     public function getIdPaciente() {
         return $this->idPaciente;
@@ -128,6 +131,14 @@ class Paciente {
         $this->inclusaoEfetuada = $inclusaoEfetuada;
     }
 
+    public function getAtualizacaoEfetuada() {
+        return $this->atualizacaoEfetuada;
+    }
+
+    public function setAtualizacaoEfetuada($atualizacaoEfetuada) {
+        $this->atualizacaoEfetuada = $atualizacaoEfetuada;
+    }
+
     /**
      * Método para calcular IMC do paciente
      * ESTÁ PRONTO ESTE MÉTODO
@@ -176,6 +187,17 @@ class Paciente {
     }
 
     /**
+     * Método para listagem de um paciente específico pelo id
+     */
+    public function listarPacienteId() {
+
+        $strSql = "SELECT * FROM paciente WHERE id_paciente = ".$this->getIdPaciente()."";
+
+        $rs = Conexao::executaSql($strSql);
+        return $rs;
+    }
+
+    /**
      * Método para excluir pacientes
      */
     public function excluirPaciente() {
@@ -208,6 +230,7 @@ class Paciente {
         ";
 
         $rs = Conexao::executaSql($strSql);
+        $this->setAtualizacaoEfetuada(true);
         return $rs;
     }
 
