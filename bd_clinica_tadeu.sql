@@ -82,7 +82,7 @@ COMMENT = 'Tabela de Médicos';
 CREATE TABLE IF NOT EXISTS `clinica`.`consulta` (
   `id_consulta` INT NOT NULL AUTO_INCREMENT COMMENT 'Id da Tabela consulta',
   `data_consulta` DATE NOT NULL COMMENT 'Data da Consulta',
-  `hora_consulta` TIME(5) NOT NULL COMMENT 'Hora da Consulta\nHH:MM',
+  `hora_consulta` TIME(0) NOT NULL COMMENT 'Hora da Consulta\nHH:MM',
   `valor_consulta` DECIMAL(6,2) NOT NULL COMMENT 'Valor da Consulta\nEx.: 1250,50 - 850,00\n',
   `observacao_consulta` VARCHAR(200) CHARACTER SET 'utf8' COLLATE 'utf8_general_ci' NULL COMMENT 'Observação Sobre a Consulta\nCampo não obrigatório',
   `paciente_id_paciente` INT NOT NULL,
