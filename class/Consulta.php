@@ -182,6 +182,7 @@ class Consulta {
         $strSql = "SELECT * FROM consulta
                    INNER JOIN paciente ON consulta.paciente_id_paciente = paciente.id_paciente
                    INNER JOIN medico ON consulta.medico_id_medico = medico.id_medico
+                   INNER JOIN especialidade ON consulta.medico_especialidade_id_especialidade = especialidade.id_especialidade
                    WHERE id_consulta = ".$this->getIdConsulta()."";
 
         $rs = Conexao::executaSql($strSql);
