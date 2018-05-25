@@ -149,7 +149,7 @@ class Consulta {
             ('".$this->getDataConsulta()."',
              '".$this->getHoraConsulta()."',
               ".$this->getValorConsulta().",
-              ".$this->getObservacaoConsulta().",
+             '".$this->getObservacaoConsulta()."',
               ".$this->getIdPacienteConsulta().",
               ".$this->getIdMedicoConsulta().",
               ".$this->getIdMedicoEspecialidadeConsulta().")
@@ -184,6 +184,17 @@ class Consulta {
                    INNER JOIN medico ON consulta.medico_id_medico = medico.id_medico
                    INNER JOIN especialidade ON consulta.medico_especialidade_id_especialidade = especialidade.id_especialidade
                    WHERE id_consulta = ".$this->getIdConsulta()."";
+
+        $rs = Conexao::executaSql($strSql);
+        return $rs;
+    }
+
+    /**
+     * Método para listagem da especialidade de um médico pelo seu id
+     */
+    public function listarEspecialidadeMedicoId($idMedico) {
+
+        $strSql = "SELECT especialidade_id_especialidade FROM medico WHERE id_medico = $idMedico";
 
         $rs = Conexao::executaSql($strSql);
         return $rs;
@@ -225,9 +236,32 @@ class Consulta {
     /**
      * Método para listagem de especialidades
      */
-    public function listarEspecialidade() {
+    /*public function listarEspecialidade() {
 
         $strSql = "SELECT * FROM especialidade";
+
+        $rs = Conexao::executaSql($strSql);
+        return $rs;
+    }*/
+
+    /**
+     * Método para listagem de médicos
+     */
+    public function listarMedico() {
+
+        $strSql = "SELECT * FROM medico
+        INNER JOIN especialidade ON medico.especialidade_id_especialidade = especialidade.id_especialidade";
+
+        $rs = Conexao::executaSql($strSql);
+        return $rs;
+    }
+
+    /**
+     * Método para listagem de pacientes
+     */
+    public function listarPaciente() {
+
+        $strSql = "SELECT * FROM paciente";
 
         $rs = Conexao::executaSql($strSql);
         return $rs;
