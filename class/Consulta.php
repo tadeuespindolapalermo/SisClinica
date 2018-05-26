@@ -231,18 +231,7 @@ class Consulta {
         $rs = Conexao::executaSql($strSql);
         $this->setAtualizacaoEfetuada(true);
         return $rs;
-    }
-
-    /**
-     * Método para listagem de especialidades
-     */
-    /*public function listarEspecialidade() {
-
-        $strSql = "SELECT * FROM especialidade";
-
-        $rs = Conexao::executaSql($strSql);
-        return $rs;
-    }*/
+    }    
 
     /**
      * Método para listagem de médicos
