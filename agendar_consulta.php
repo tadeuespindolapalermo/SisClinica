@@ -81,7 +81,7 @@ echo '
                 <input maxlength="8" style="width: 110px;" type="text" name="horaConsulta" class="form-control" placeholder="00:00:00" required>
 
                 <label class="form-group">Valor</label>
-                <input min="0" step=".01" style="width: 120px;" type="number" name="valorConsulta" class="form-control" value="000.00" placeholder="Ex.: 000,00" required>
+                <input min="0" step=".01" style="width: 120px;" type="number" name="valorConsulta" class="form-control" placeholder="Ex.: 000,00" required>
 
                 <label class="form-group">Médico</label>
                 <select name="idMedicoConsulta" style="width: 182px;" class="form-control" placeholder="Médico..." required>
