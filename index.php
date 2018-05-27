@@ -12,6 +12,7 @@
         <script src="jquery/jquery-1_3_2.min.js"></script>
         <script src="jquery/maskedinput.js"></script>
         <script src="jquery/masks.js"></script>
+        <script src="js/alerts.js"></script>
     </head>
 
     <body>
@@ -22,7 +23,7 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#about">Institucional</a></li>
+                        <li class="active"><a href="#">Institucional</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 Paciente <b class="caret"></b>
@@ -68,7 +69,7 @@
             <div class="jumbotron">
                 <h1>SisClínica</h1>
                 <p>Sistema de Controle de Pacientes e Consultas</p>
-                <p><a class="btn btn-primary btn-lg glyphicon glyphicon-info-sign" role="button">Saiba Mais</a></p>
+                <p><a class="btn btn-primary btn-lg " role="button">Saiba Mais</a></p>
             </div>
         </div>
 
@@ -81,7 +82,7 @@
         <div class="footer ">
             <div class="container">
                 <hr>
-                <p class="text-muted text-center">&copy; 2018 | Tadeu E. P.</p>
+                <p class="text-muted text-center"><a href="http://www.codigofonteonline.com.br/" target="_blank">&copy; 2018 | Tadeu E. P.</a></p>
             </div>
         </div>
         <script src="jquery/jquery-3_2_1.slim.min.js"></script>

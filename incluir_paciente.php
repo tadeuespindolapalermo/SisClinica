@@ -37,20 +37,32 @@
         // Execute o método incluir paciente
         $paciente->incluirPaciente();
         if($paciente->getInclusaoEfetuada()) {
+            echo '
+            <center>
+                <div class="alert alert-success" style="width: 455px;">
+                    <strong>SUCESSO!</strong> Cadastro realizado com sucesso!
+                </div>
+            </center>';
             echo "
-                <script type=\"text/javascript\">
-                alert(\"Paciente cadastrado com sucesso!\");
-                </script>
-                <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/TCD_LPWII/index.php?pagina=listar_paciente.php'
+            <script type=\"text/javascript\">
+            alert(\"Paciente cadastrado com sucesso!\");
+            </script>
+            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+            http://localhost/TCD_LPWII/index.php?pagina=listar_paciente.php'
             ";
         } else {
+            echo '
+            <center>
+                <div class="alert alert-danger" style="width: 455px;">
+                    <strong>ERRO!</strong> Não foi possível realizar o cadastro!
+                </div>
+            </center>';
             echo "
-                <script type=\"text/javascript\">
-                alert(\"Erro ao cadastrar paciente!\");
-                </script>
-                <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/TCD_LPWII/index.php?pagina=incluir_paciente.php'
+            <script type=\"text/javascript\">
+            alert(\"Erro ao cadastrar paciente!\");
+            </script>
+            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+            http://localhost/TCD_LPWII/index.php?pagina=incluir_paciente.php'
             ";
         }
     }

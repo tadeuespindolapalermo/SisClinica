@@ -40,6 +40,8 @@
                                 $medico->setCrmMedico($linha['crm_medico']);
                                 $medico->setDataNascimentoMedico($linha['data_nasc_medico']);
 
+                                $alert = 'msgConfirmaDeleteMedico('.$medico->getIdMedico().')';
+
                                 // Preencha as colunas da tabela com o resultado da consulta
                                 echo '
                                 <tbody>
@@ -49,7 +51,7 @@
                                         <td>'.$medico->getDescricaoMedicoEspecialidade().'</td>
                                         <td>'.$medico->getCrmMedico().'</td>
                                         <td>'.$medico->getDataNascimentoMedico().'</td>
-                                        <td><a href="index.php?pagina=excluir_medico.php&idMedico='.$medico->getIdMedico().'"><img src="icones/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                        <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="icones/open-iconic/svg/x.svg" alt="remover"></a></td>
                                         <td><a href="index.php?pagina=atualizar_medico.php&idMedico='.$medico->getIdMedico().'"><img src="icones/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                     </tr>
                                 </tbody>';

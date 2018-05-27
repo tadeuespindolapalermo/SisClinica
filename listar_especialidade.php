@@ -33,13 +33,15 @@
                                 $especialidade->setIdEspecialidade($linha['id_especialidade']);
                                 $especialidade->setDescricaoEspecialidade($linha['descricao_especialidade']);
 
+                                $alert = 'msgConfirmaDeleteEspecialidade('.$especialidade->getIdEspecialidade().')';
+
                                 // Preencha as colunas da tabela com o resultado da consulta
                                 echo '
                                 <tbody>
                                     <tr>
                                         <td>'.$especialidade->getIdEspecialidade().'</td>
                                         <td>'.$especialidade->getDescricaoEspecialidade().'</td>
-                                        <td><a href="index.php?pagina=excluir_especialidade.php&idEspecialidade='.$especialidade->getIdEspecialidade().'"><img src="icones/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                        <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="icones/open-iconic/svg/x.svg" alt="remover"></a></td>
                                         <td><a href="index.php?pagina=atualizar_especialidade.php&idEspecialidade='.$especialidade->getIdEspecialidade().'"><img src="icones/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                     </tr>
                                 </tbody>';

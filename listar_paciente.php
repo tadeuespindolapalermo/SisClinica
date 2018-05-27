@@ -6,7 +6,6 @@
 
     // Execute a consulta listar paciente
     $consulta = $paciente->listarPaciente();
-
 ?>
 <div class="container">
     <div class="header clearfix">
@@ -53,6 +52,8 @@
                                 $paciente->setAlturaPaciente($linha['altura_paciente']);
                                 $paciente->setImcPaciente($linha['imc_paciente']);
 
+                                $alert = 'msgConfirmaDeletePaciente('.$paciente->getIdPaciente().')';
+                                
                                 // Preencha as colunas da tabela com o resultado da consulta
                                 echo '
                                 <tbody>
@@ -69,7 +70,7 @@
                                         <td>'.$paciente->getPesoPaciente().'</td>
                                         <td>'.$paciente->getAlturaPaciente().'</td>
                                         <td>'.$paciente->getImcPaciente().'</td>
-                                        <td><a href="index.php?pagina=excluir_paciente.php&idPaciente='.$paciente->getIdPaciente().'"><img src="icones/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                        <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="icones/open-iconic/svg/x.svg" alt="remover"></a></td>
                                         <td><a href="index.php?pagina=atualizar_paciente.php&idPaciente='.$paciente->getIdPaciente().'"><img src="icones/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                     </tr>
                                 </tbody>';

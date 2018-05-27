@@ -48,6 +48,8 @@
                                 $consulta->setDescricaoMedicoEspecialidade($linha['descricao_especialidade']);
                                 $consulta->setObservacaoConsulta($linha['observacao_consulta']);
 
+                                $alert = 'msgConfirmaDeleteConsulta('.$consulta->getIdConsulta().')';
+
                                 // Preencha as colunas da tabela com o resultado da consulta
                                 echo '
                                 <tbody>
@@ -60,7 +62,7 @@
                                         <td>'.$consulta->getNomeMedicoConsulta().'</td>
                                         <td>'.$consulta->getDescricaoMedicoEspecialidade().'</td>
                                         <td>'.$consulta->getObservacaoConsulta().'</td>
-                                        <td><a href="index.php?pagina=excluir_consulta.php&idConsulta='.$consulta->getIdConsulta().'"><img src="icones/open-iconic/svg/x.svg" alt="remover"></a></td>
+                                        <td><a href="javascript:void(null);" onclick="'.$alert.'"><img src="icones/open-iconic/svg/x.svg" alt="remover"></a></td>
                                         <td><a href="index.php?pagina=atualizar_consulta.php&idConsulta='.$consulta->getIdConsulta().'"><img src="icones/open-iconic/svg/brush.svg" alt="editar"></a></td>
                                     </tr>
                                 </tbody>';

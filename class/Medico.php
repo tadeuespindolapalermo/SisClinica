@@ -98,7 +98,7 @@ class Medico {
             ('".$this->getNomeMedico()."',
              '".$this->getCrmMedico()."',
              '".$this->getDataNascimentoMedico()."',
-             '".$this->getIdMedicoEspecialidade()."')
+              ".$this->getIdMedicoEspecialidade().")
         ";
 
         $rs = Conexao::executaSqlInsert($strSql);

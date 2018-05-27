@@ -3,7 +3,7 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        // Recupere os dados do formulario
+        // Recupere os dados do formulário
         $dataConsulta = $_POST['dataConsulta'];
         $horaConsulta = $_POST['horaConsulta'];
         $valorConsulta = $_POST['valorConsulta'];
@@ -19,7 +19,7 @@
         $linha = mysqli_fetch_array($idEspecialidade, MYSQLI_ASSOC);
         $idMedicoEspecialidadeConsulta = $linha['especialidade_id_especialidade'];
 
-        // Atribua os valores do formulário na classe cliente
+        // Atribua os valores do formulário na classe Consulta
         $consulta->setDataConsulta($dataConsulta);
         $consulta->setHoraConsulta($horaConsulta);
         $consulta->setValorConsulta($valorConsulta);
@@ -51,20 +51,32 @@
         // Execute o método atualizar consulta
         $consulta->atualizarConsulta();
         if($consulta->getAtualizacaoEfetuada()) {
+            echo '
+            <center>
+                <div class="alert alert-success" style="width: 455px;">
+                    <strong>SUCESSO!</strong> Registro atualizado com sucesso!
+                </div>
+            </center>';
             echo "
-                <script type=\"text/javascript\">
-                alert(\"Consulta atualizada com sucesso!\");
-                </script>
-                <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/TCD_LPWII/index.php?pagina=listar_consulta.php'
+            <script type=\"text/javascript\">
+            alert(\"Consulta atualizada com sucesso!\");
+            </script>
+            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+            http://localhost/TCD_LPWII/index.php?pagina=listar_consulta.php'
             ";
         } else {
+            echo '
+            <center>
+                <div class="alert alert-danger" style="width: 455px;">
+                    <strong>ERRO!</strong> Não foi possível atualizar o registro!
+                </div>
+            </center>';
             echo "
-                <script type=\"text/javascript\">
-                alert(\"Erro ao atualizar consulta!\");
-                </script>
-                <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/TCD_LPWII/index.php?pagina=agendar_consulta.php'
+            <script type=\"text/javascript\">
+            alert(\"Erro ao atualizar consulta!\");
+            </script>
+            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+            http://localhost/TCD_LPWII/index.php?pagina=atualizar_consulta.php&idConsulta={$consulta->getIdConsulta()}'
             ";
         }
     }

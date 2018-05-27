@@ -11,7 +11,7 @@ class Conexao {
 
 		$mysql_usuario = "root";
 		$mysql_password = "mysql1985";
-		$mysql_database = "clinica";
+		$mysql_database = "clinica_tadeu";
 		$mysql_host  = "localhost";
 
 		//Cria a conexão com o banco de dados

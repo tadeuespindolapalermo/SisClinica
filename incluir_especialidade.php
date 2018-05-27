@@ -15,20 +15,32 @@
         // Execute o método incluir especialidade
         $especialidade->incluirEspecialidade();
         if($especialidade->getInclusaoEfetuada()) {
+            echo '
+            <center>
+                <div class="alert alert-success" style="width: 455px;">
+                    <strong>SUCESSO!</strong> Cadastro realizado com sucesso!
+                </div>
+            </center>';
             echo "
-                <script type=\"text/javascript\">
-                alert(\"Especialidade cadastrado com sucesso!\");
-                </script>
-                <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/TCD_LPWII/index.php?pagina=listar_especialidade.php'
+            <script type=\"text/javascript\">
+            alert(\"Especialidade cadastrada com sucesso!\");
+            </script>
+            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+            http://localhost/TCD_LPWII/index.php?pagina=listar_especialidade.php'
             ";
         } else {
+            echo '
+            <center>
+                <div class="alert alert-danger" style="width: 455px;">
+                    <strong>ERRO!</strong> Não foi possível realizar o cadastro!
+                </div>
+            </center>';
             echo "
-                <script type=\"text/javascript\">
-                alert(\"Erro ao cadastrar especialidade!\");
-                </script>
-                <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
-                http://localhost/TCD_LPWII/index.php?pagina=incluir_especialidade.php'
+            <script type=\"text/javascript\">
+            alert(\"Erro ao cadastrar especialidade!\");
+            </script>
+            <META HTTP-EQUIV=REFRESH CONTENT = '0;URL=
+            http://localhost/TCD_LPWII/index.php?pagina=incluir_especialidade.php'
             ";
         }
     }
