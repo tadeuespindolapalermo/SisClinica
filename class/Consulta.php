@@ -29,7 +29,7 @@ class Consulta {
     private $nomeMedicoConsulta;
 
     // Atributo especial que seta o nome do paciente de acorco com o id da consulta
-    private $nomePacienteConsulta;
+    private $nomePacienteConsulta;    
 
     // Métodos acessores SET e GET
     public function getIdConsulta() {
@@ -154,48 +154,67 @@ class Consulta {
               ".$this->getIdMedicoConsulta().",
               ".$this->getIdMedicoEspecialidadeConsulta().")
         ";
-
         $rs = Conexao::executaSqlInsert($strSql);
         $this->setInclusaoEfetuada(true);
         return $rs;
     }
 
     /**
-     * Método para listagem de consultas
+     * Método para listagem de consultas (view de listagem de consultas)
      */
     public function listarConsulta() {
-
         $strSql = "SELECT * FROM consulta
                    INNER JOIN paciente ON consulta.paciente_id_paciente = paciente.id_paciente
                    INNER JOIN medico ON consulta.medico_id_medico = medico.id_medico
                    INNER JOIN especialidade ON consulta.medico_especialidade_id_especialidade = especialidade.id_especialidade";
-
         $rs = Conexao::executaSql($strSql);
         return $rs;
     }
 
     /**
-     * Método para listagem de uma consulta específica pelo id
+     * Método para listagem de uma consulta específica pelo id (formulário de update de consultas)
      */
     public function listarConsultaId() {
-
         $strSql = "SELECT * FROM consulta
                    INNER JOIN paciente ON consulta.paciente_id_paciente = paciente.id_paciente
                    INNER JOIN medico ON consulta.medico_id_medico = medico.id_medico
                    INNER JOIN especialidade ON consulta.medico_especialidade_id_especialidade = especialidade.id_especialidade
                    WHERE id_consulta = ".$this->getIdConsulta()."";
-
         $rs = Conexao::executaSql($strSql);
         return $rs;
     }
 
     /**
-     * Método para listagem da especialidade de um médico pelo seu id
+     * Método para listagem de uma consulta específica pelo paciente (view de busca personalizada)
+     */
+    public function listarConsultaPaciente() {
+        $strSql = "SELECT * FROM consulta
+                   INNER JOIN paciente ON consulta.paciente_id_paciente = paciente.id_paciente
+                   INNER JOIN medico ON consulta.medico_id_medico = medico.id_medico
+                   INNER JOIN especialidade ON consulta.medico_especialidade_id_especialidade = especialidade.id_especialidade
+                   WHERE id_paciente = ".$this->getIdPacienteConsulta()."";
+        $rs = Conexao::executaSql($strSql);
+        return $rs;
+    }
+
+    /**
+     * Método para listagem de uma consulta específica pelo médico (view de busca personalizada)
+     */
+    public function listarConsultaMedico() {
+        $strSql = "SELECT * FROM consulta
+                   INNER JOIN paciente ON consulta.paciente_id_paciente = paciente.id_paciente
+                   INNER JOIN medico ON consulta.medico_id_medico = medico.id_medico
+                   INNER JOIN especialidade ON consulta.medico_especialidade_id_especialidade = especialidade.id_especialidade
+                   WHERE id_medico = ".$this->getIdMedicoConsulta()."";
+        $rs = Conexao::executaSql($strSql);
+        return $rs;
+    }
+
+    /**
+     * Método para listagem da especialidade de um médico pelo seu id (formulário de update de consultas)
      */
     public function listarEspecialidadeMedicoId($idMedico) {
-
         $strSql = "SELECT especialidade_id_especialidade FROM medico WHERE id_medico = $idMedico";
-
         $rs = Conexao::executaSql($strSql);
         return $rs;
     }
@@ -204,9 +223,7 @@ class Consulta {
      * Método para excluir consultas
      */
     public function excluirConsulta() {
-
         $strSql = "DELETE FROM consulta WHERE id_consulta = ".$this->getIdConsulta()."";
-
         $rs = Conexao::executaSql($strSql);
         return $rs;
     }
@@ -227,31 +244,26 @@ class Consulta {
         WHERE
             id_consulta = ".$this->getIdConsulta().";
         ";
-
         $rs = Conexao::executaSql($strSql);
         $this->setAtualizacaoEfetuada(true);
         return $rs;
-    }    
+    }
 
     /**
-     * Método para listagem de médicos
+     * Método para listagem de médicos (formulário de insert e update)
      */
     public function listarMedico() {
-
         $strSql = "SELECT * FROM medico
         INNER JOIN especialidade ON medico.especialidade_id_especialidade = especialidade.id_especialidade";
-
         $rs = Conexao::executaSql($strSql);
         return $rs;
     }
 
     /**
-     * Método para listagem de pacientes
+     * Método para listagem de pacientes (formulário de insert e update)
      */
     public function listarPaciente() {
-
         $strSql = "SELECT * FROM paciente";
-
         $rs = Conexao::executaSql($strSql);
         return $rs;
     }

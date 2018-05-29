@@ -58,6 +58,7 @@
                             <ul class="dropdown-menu">
                                 <li><a href="index.php?pagina=agendar_consulta.php">Agendar Consultas</a></li>
                                 <li><a href="index.php?pagina=listar_consulta.php">Listar Consultas</a></li>
+                                <li><a href="index.php?pagina=listar_consulta_personalizada.php">Busca Personalizada</a></li>
                             </ul>
                         </li>
                     </ul>
