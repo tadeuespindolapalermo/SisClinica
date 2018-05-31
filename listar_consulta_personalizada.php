@@ -5,18 +5,21 @@
     $consulta = new Consulta();
     $consultaPaciente = new Consulta();
     $consultaMedico = new Consulta();
+    $consultaData = new Consulta();
 
     // Recupere os dados do formulário
     $pacienteConsulta = $_POST['pacienteConsulta'];
     $medicoConsulta = $_POST['medicoConsulta'];
+    $dataConsulta = $_POST['dataConsulta'];
 
     // Atribua os valores do formulário na classe Consulta
     $consulta->setIdPacienteConsulta($pacienteConsulta);
     $consulta->setIdMedicoConsulta($medicoConsulta);
+    $consulta->setDataConsulta($dataConsulta);
 
     echo '
     <div class="container">
-        <legend><div style="text-align: center;">Selecione o tipo de busca desejada:</div></legend>
+        <legend><div style="text-align: center;">Selecione o tipo de busca desejada para Consultas:</div></legend>
 
         <form action="index.php?pagina=listar_consulta_personalizada.php" method="post" style="margin-left: 390px;">
             <div class="form-inline">
@@ -36,7 +39,7 @@
                 </div>
             </div>
         </form>
-
+        <hr/>
         <form action="index.php?pagina=listar_consulta_personalizada.php" method="post" style="margin-left: 398px;">
             <div class="form-inline">
                 <div class="col-lg-13">
@@ -56,12 +59,33 @@
                 </div>
             </div>
         </form>
+        <hr/>
+        <form action="index.php?pagina=listar_consulta_personalizada.php" method="post" style="margin-left: 416px;">
+            <div class="form-inline">
+                <div class="col-lg-13">
+                <label class="form-group">Data</label>
+                <select name="dataConsulta" style="width: 184px;" class="form-control" placeholder="Data..." required>
+                    <option value="">-Selecione-</option>';
+                        $resultadoDat = $consultaData->listarData();
+                        while($linha = mysqli_fetch_array($resultadoDat, MYSQLI_ASSOC)) {
+                            $consultaData->setDataConsulta($linha['data_consulta']);
+                            echo '<option value="'.$consultaData->getDataConsulta().'">'.$consultaData->getDataConsulta().'</option>';
+                        }
+                        echo '
+                </select>
+                <button style="width: 70px; margin-left: px;" type="submit" class="btn btn-success">Buscar</button>
+                </div>
+            </div>
+        </form>
+        <hr/>
     </div>';
 
     if ($consulta->getIdPacienteConsulta() >= 1) {
         $listar = $consulta->listarConsultaPaciente();
     } elseif ($consulta->getIdMedicoConsulta() >= 1) {
         $listar = $consulta->listarConsultaMedico();
+    } elseif ($consulta->getDataConsulta() >= 1) {
+        $listar = $consulta->listarConsultaData();
     }
 
     if($listar >= 1) {

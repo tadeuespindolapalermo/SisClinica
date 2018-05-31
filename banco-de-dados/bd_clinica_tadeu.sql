@@ -127,7 +127,7 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- -----------------------------------------------------
--- Inserção de registros na tabela paciente
+-- Inserção de registros na tabela paciente (5 registros)
 -- -----------------------------------------------------
 INSERT INTO `paciente` (`nome_paciente`, `cpf_paciente`, `data_nasc_paciente`, `telefone_paciente`, `endereco_paciente`, `bairro_paciente`, `cidade_paciente`, `uf_paciente`, `peso_paciente`, `altura_paciente`, `imc_paciente`)
 VALUES
@@ -137,8 +137,20 @@ INSERT INTO `paciente` (`nome_paciente`, `cpf_paciente`, `data_nasc_paciente`, `
 VALUES
 ('Ana Paula Espindola Palermo', '006.372.921-03', '1984-04-28', '(61) 9 8449-5550', 'Area Especial 21/24 - Lotes 01/03 - Apto. 415 - Ed. Bello Oeste', 'Setor Oeste',  'Gama', 'DF', 65.00, 1.75, 21.20);
 
+INSERT INTO `paciente` (`nome_paciente`, `cpf_paciente`, `data_nasc_paciente`, `telefone_paciente`, `endereco_paciente`, `bairro_paciente`, `cidade_paciente`, `uf_paciente`, `peso_paciente`, `altura_paciente`, `imc_paciente`)
+VALUES
+('Pedro Augusto dos Santos', '225.985.745-65', '1982-06-30', '(43) 9 8227-6475', 'Av. Duque de Caxias, 687', 'Centro',  'Londrina', 'PR', 95.00, 1.71, 32.50);
+
+INSERT INTO `paciente` (`nome_paciente`, `cpf_paciente`, `data_nasc_paciente`, `telefone_paciente`, `endereco_paciente`, `bairro_paciente`, `cidade_paciente`, `uf_paciente`, `peso_paciente`, `altura_paciente`, `imc_paciente`)
+VALUES
+('Maria Madalena Alves Pereira', '056.498.442-54', '1987-08-28', '(51) 9 9564-1456', 'Rua Montes Claros, 685', 'Jardim Madalena',  'Rio Grande do Sul', 'RS', 110.00, 1.65, 40.40);
+
+INSERT INTO `paciente` (`nome_paciente`, `cpf_paciente`, `data_nasc_paciente`, `telefone_paciente`, `endereco_paciente`, `bairro_paciente`, `cidade_paciente`, `uf_paciente`, `peso_paciente`, `altura_paciente`, `imc_paciente`)
+VALUES
+('George H. R. Escobar Mendonca', '325.746.456-95', '1980-03-17', '(61) 9 9287-0130', 'Rua Quinze, 156', 'Flor Nova',  'Valparaiso', 'GO', 150.00, 1.70, 51.90);
+
 -- -----------------------------------------------------
--- Inserção de registros na tabela especialidade
+-- Inserção de registros na tabela especialidade (10 registros)
 -- -----------------------------------------------------
 INSERT INTO `especialidade` (`descricao_especialidade`) VALUES ('Odontologia');
 INSERT INTO `especialidade` (`descricao_especialidade`) VALUES ('Pediatria');
@@ -152,7 +164,7 @@ INSERT INTO `especialidade` (`descricao_especialidade`) VALUES ('Obstetricia');
 INSERT INTO `especialidade` (`descricao_especialidade`) VALUES ('Ginecologia');
 
 -- -----------------------------------------------------
--- Inserção de registros na tabela medico
+-- Inserção de registros na tabela medico (5 registros)
 -- -----------------------------------------------------
 INSERT INTO `medico` (`nome_medico`, `crm_medico`, `data_nasc_medico`, `especialidade_id_especialidade`)
 VALUES
@@ -166,18 +178,41 @@ INSERT INTO `medico` (`nome_medico`, `crm_medico`, `data_nasc_medico`, `especial
 VALUES
 ('Drauzio Varela', '22685478', '1988-11-18', 3);
 
+INSERT INTO `medico` (`nome_medico`, `crm_medico`, `data_nasc_medico`, `especialidade_id_especialidade`)
+VALUES
+('Rafael Galvao', '24965872', '1987-12-14', 6);
+
+INSERT INTO `medico` (`nome_medico`, `crm_medico`, `data_nasc_medico`, `especialidade_id_especialidade`)
+VALUES
+('Pedro Ivo Gomes Pereira', '33496657', '1978-08-29', 7);
+
 -- -----------------------------------------------------
--- Inserção de registros na tabela consulta
+-- Inserção de registros na tabela consulta (5 registros)
 -- -----------------------------------------------------
 INSERT INTO `consulta` (`data_consulta`, `hora_consulta`, `valor_consulta`, `observacao_consulta`,
 `paciente_id_paciente`, `medico_id_medico`, `medico_especialidade_id_especialidade`)
 VALUES
-('2018-05-31', '19:55:00', 155.00, 'Reagendar consulta!', 1, 2, 10);
+('2018-07-14', '14:30:00', 155.00, 'Reagendar consulta!', 1, 2, 10);
 
 INSERT INTO `consulta` (`data_consulta`, `hora_consulta`, `valor_consulta`, `observacao_consulta`,
 `paciente_id_paciente`, `medico_id_medico`, `medico_especialidade_id_especialidade`)
 VALUES
-('2019-01-15', '14:24:55', 67.00, 'Paciente medicado!', 2, 3, 3);
+('2019-01-15', '16:00:00', 67.00, 'Paciente medicado!', 2, 3, 3);
+
+INSERT INTO `consulta` (`data_consulta`, `hora_consulta`, `valor_consulta`, `observacao_consulta`,
+`paciente_id_paciente`, `medico_id_medico`, `medico_especialidade_id_especialidade`)
+VALUES
+('2018-08-30', '15:40:00', 255.50, 'Paciente devera retornar caso o efeito do medicamento não seja satisfatorio!', 5, 4, 6);
+
+INSERT INTO `consulta` (`data_consulta`, `hora_consulta`, `valor_consulta`, `observacao_consulta`,
+`paciente_id_paciente`, `medico_id_medico`, `medico_especialidade_id_especialidade`)
+VALUES
+('2018-10-02', '08:20:00', 500.80, 'O paciente encontra-se em estado muito grade!', 4, 5, 7);
+
+INSERT INTO `consulta` (`data_consulta`, `hora_consulta`, `valor_consulta`, `observacao_consulta`,
+`paciente_id_paciente`, `medico_id_medico`, `medico_especialidade_id_especialidade`)
+VALUES
+('2018-06-29', '10:50:00', 1875.40, 'Nenhuma observacao!', 3, 2, 10);
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

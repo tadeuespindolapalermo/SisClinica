@@ -29,7 +29,7 @@ class Consulta {
     private $nomeMedicoConsulta;
 
     // Atributo especial que seta o nome do paciente de acorco com o id da consulta
-    private $nomePacienteConsulta;    
+    private $nomePacienteConsulta;
 
     // Métodos acessores SET e GET
     public function getIdConsulta() {
@@ -211,6 +211,19 @@ class Consulta {
     }
 
     /**
+     * Método para listagem de uma consulta específica pela data (view de busca personalizada)
+     */
+    public function listarConsultaData() {
+        $strSql = "SELECT * FROM consulta
+                   INNER JOIN paciente ON consulta.paciente_id_paciente = paciente.id_paciente
+                   INNER JOIN medico ON consulta.medico_id_medico = medico.id_medico
+                   INNER JOIN especialidade ON consulta.medico_especialidade_id_especialidade = especialidade.id_especialidade
+                   WHERE data_consulta = '".$this->getDataConsulta()."'";
+        $rs = Conexao::executaSql($strSql);
+        return $rs;
+    }
+
+    /**
      * Método para listagem da especialidade de um médico pelo seu id (formulário de update de consultas)
      */
     public function listarEspecialidadeMedicoId($idMedico) {
@@ -250,7 +263,7 @@ class Consulta {
     }
 
     /**
-     * Método para listagem de médicos (formulário de insert e update)
+     * Método para listagem de médicos (formulário de insert e update) e (view de busca personalizada)
      */
     public function listarMedico() {
         $strSql = "SELECT * FROM medico
@@ -260,10 +273,19 @@ class Consulta {
     }
 
     /**
-     * Método para listagem de pacientes (formulário de insert e update)
+     * Método para listagem de pacientes (formulário de insert e update) e (view de busca personalizada)
      */
     public function listarPaciente() {
         $strSql = "SELECT * FROM paciente";
+        $rs = Conexao::executaSql($strSql);
+        return $rs;
+    }
+
+    /**
+     * Método para listagem de datas de consultas (view de busca personalizada)
+     */
+    public function listarData() {
+        $strSql = "SELECT data_consulta FROM consulta";
         $rs = Conexao::executaSql($strSql);
         return $rs;
     }
