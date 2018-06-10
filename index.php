@@ -70,17 +70,17 @@
             <div class="jumbotron">
                 <h1>SisClínica</h1>
                 <p>Sistema de Controle de Pacientes e Consultas</p>
+                <p><code>Tadeu Espíndola Palermo</code></p>
                 <p><a class="btn btn-primary btn-lg " role="button">Saiba Mais</a></p>
             </div>
         </div>
 
-        <?php
-            if (isset($_GET['pagina']) != '') {
-                include_once $_GET['pagina'];
-            }
-        ?>
-
-        <div class="footer ">
+<?php
+if (isset($_GET['pagina']) != '') {
+	include_once $_GET['pagina'];
+}
+?>
+<div class="footer ">
             <div class="container">
                 <hr>
                 <p class="text-muted text-center"><a href="http://www.codigofonteonline.com.br/" target="_blank">&copy; 2018 | Tadeu E. P.</a></p>
